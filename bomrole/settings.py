@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'location'
+    'touristspots',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -52,10 +53,16 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'bomrole.urls'
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['touristspots'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
