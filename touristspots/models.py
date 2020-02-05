@@ -6,6 +6,9 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=255, unique=True, blank=False, null=False)
 
+    def __str__(self):
+        return "%s" % self.name
+
 
 class TouristSpot(models.Model):
     latitude = models.FloatField(blank=False, null=False)

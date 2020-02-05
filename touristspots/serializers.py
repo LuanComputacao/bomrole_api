@@ -10,7 +10,6 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['url', 'username', 'email', 'groups']
 
 
-
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Group
@@ -21,6 +20,7 @@ class TouristSpotSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = TouristSpot
         fields = [
+            'url',
             'latitude',
             'longitude',
             'name',
@@ -31,4 +31,4 @@ class TouristSpotSerializer(serializers.HyperlinkedModelSerializer):
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Category
-        fields = ['name']
+        fields = ['url', 'name']
