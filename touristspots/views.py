@@ -1,6 +1,7 @@
+import django_filters
 from django.contrib.auth.models import User, Group
-# Create your views here.
 from rest_framework import viewsets
+from rest_framework.generics import ListAPIView
 
 from touristspots.models import TouristSpot, Category
 from touristspots.serializers import UserSerializer, GroupSerializer, TouristSpotSerializer, CategorySerializer
@@ -28,7 +29,7 @@ class TouristSpotViewSet(viewsets.ModelViewSet):
     """
     queryset = TouristSpot.objects.all()
     serializer_class = TouristSpotSerializer
-
+    filter_fields = ('name', )
 
 class CategoryViewSet(viewsets.ModelViewSet):
     """
