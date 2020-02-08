@@ -59,3 +59,14 @@ class TouristSpotComments(TimeStamps):
     class Meta:
         verbose_name = _('Tourist Spot Comment')
         verbose_name_plural = _('Tourist Spot Comments')
+
+
+class FavoriteTouristSpot(TimeStamps):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    tourist_spot = models.ForeignKey(TouristSpot, on_delete=models.CASCADE, null=True)
+
+    class Meta:
+        verbose_name = _('Favorite Tourist Spot')
+        verbose_name_plural = _('Favorite Tourist Spots')
+
+

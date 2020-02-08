@@ -1,7 +1,8 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 
-from touristspots.models import TouristSpot, TouristSpotCategory, TouristSpotUpvote, TouristSpotComments
+from touristspots.models import TouristSpot, TouristSpotCategory, TouristSpotUpvote, TouristSpotComments, \
+    FavoriteTouristSpot
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -61,5 +62,15 @@ class TouristSpotCommentSerializer(serializers.HyperlinkedModelSerializer):
         fields = [
             'user',
             'text',
+            'url'
+        ]
+
+
+class FavoriteTouristSpotSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = FavoriteTouristSpot
+        fields = [
+            'user',
+            'tourist_spot',
             'url'
         ]
