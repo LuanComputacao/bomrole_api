@@ -32,7 +32,7 @@
   pk: 7
   fields:
     app_label: touristspots
-    model: category
+    model: touristspotcategory
 - model: contenttypes.contenttype
   pk: 8
   fields:
@@ -43,34 +43,43 @@
   fields:
     app_label: touristspots
     model: touristspot
+- model: contenttypes.contenttype
+  pk: 10
+  fields:
+    app_label: touristspots
+    model: touristspotcomments
 - model: sessions.session
   pk: awassix1mnp43bakgrd49woru4vu7xis
   fields:
     session_data: YjAzOTg1OTQ1ZGY4N2YyNmQ2NmMzM2RhZGZmZjJhMDNkZTdjMTdhMjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJkYWVkOTBhMDE2OGYxNTAyMWY3MDViZmEyOWYxYTE2MDU5Y2YwZGY1In0=
     expire_date: 2020-02-22 21:22:15.477197+00:00
-- model: touristspots.category
+- model: touristspots.touristspotcategory
   pk: 1
   fields:
     created_at: 2020-02-08 21:22:37.993285+00:00
     updated_at: 2020-02-08 21:22:37.993412+00:00
+    deleted_at: null
     name: Park
-- model: touristspots.category
+- model: touristspots.touristspotcategory
   pk: 2
   fields:
     created_at: 2020-02-08 21:22:43.775015+00:00
     updated_at: 2020-02-08 21:22:43.775099+00:00
+    deleted_at: null
     name: Museum
-- model: touristspots.category
+- model: touristspots.touristspotcategory
   pk: 3
   fields:
     created_at: 2020-02-08 21:22:48.892595+00:00
     updated_at: 2020-02-08 21:22:48.892657+00:00
+    deleted_at: null
     name: Theater
-- model: touristspots.category
+- model: touristspots.touristspotcategory
   pk: 4
   fields:
     created_at: 2020-02-08 21:22:56.339897+00:00
     updated_at: 2020-02-08 21:22:56.340027+00:00
+    deleted_at: null
     name: Monument
 - model: auth.permission
   pk: 1
@@ -288,6 +297,54 @@
     name: Can view Tourist Spot
     content_type: 9
     codename: view_touristspot
+- model: auth.permission
+  pk: 37
+  fields:
+    name: Can add Tourist Spot Comment
+    content_type: 10
+    codename: add_touristspotcomments
+- model: auth.permission
+  pk: 38
+  fields:
+    name: Can change Tourist Spot Comment
+    content_type: 10
+    codename: change_touristspotcomments
+- model: auth.permission
+  pk: 39
+  fields:
+    name: Can delete Tourist Spot Comment
+    content_type: 10
+    codename: delete_touristspotcomments
+- model: auth.permission
+  pk: 40
+  fields:
+    name: Can view Tourist Spot Comment
+    content_type: 10
+    codename: view_touristspotcomments
+- model: auth.permission
+  pk: 41
+  fields:
+    name: Can add Category
+    content_type: 7
+    codename: add_touristspotcategory
+- model: auth.permission
+  pk: 42
+  fields:
+    name: Can change Category
+    content_type: 7
+    codename: change_touristspotcategory
+- model: auth.permission
+  pk: 43
+  fields:
+    name: Can delete Category
+    content_type: 7
+    codename: delete_touristspotcategory
+- model: auth.permission
+  pk: 44
+  fields:
+    name: Can view Category
+    content_type: 7
+    codename: view_touristspotcategory
 - model: auth.user
   pk: 1
   fields:
@@ -308,11 +365,20 @@
   fields:
     created_at: 2020-02-08 21:33:21.882680+00:00
     updated_at: 2020-02-08 21:33:21.882727+00:00
+    deleted_at: null
     latitude: -25.4420753
     longitude: -49.2409591
     name: "Jardim Bot\xE2nico de Curitiba"
     registered_by: 1
     category: 1
+- model: touristspots.touristspotupvote
+  pk: 1
+  fields:
+    created_at: 2020-02-08 21:38:06.390837+00:00
+    updated_at: 2020-02-08 21:38:06.390875+00:00
+    deleted_at: null
+    user: 1
+    tourist_spot: 1
 - model: admin.logentry
   pk: 1
   fields:
@@ -361,5 +427,15 @@
     content_type: 9
     object_id: '1'
     object_repr: "Jardim Bot\xE2nico de Curitiba (-25.4420753) [-49.2409591, Park]"
+    action_flag: 1
+    change_message: '[{"added": {}}]'
+- model: admin.logentry
+  pk: 6
+  fields:
+    action_time: 2020-02-08 21:38:06.391507+00:00
+    user: 1
+    content_type: 8
+    object_id: '1'
+    object_repr: TouristSpotUpvote object (1)
     action_flag: 1
     change_message: '[{"added": {}}]'
