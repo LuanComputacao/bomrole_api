@@ -3,9 +3,10 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework.generics import ListAPIView
 
-from touristspots.models import TouristSpot, TouristSpotCategory, TouristSpotUpvote, TouristSpotComments
+from touristspots.models import TouristSpot, TouristSpotCategory, TouristSpotUpvote, TouristSpotComments, \
+    FavoriteTouristSpot
 from touristspots.serializers import UserSerializer, GroupSerializer, TouristSpotSerializer, CategorySerializer, \
-    TouristSpotUpvoteSerializer, TouristSpotCommentSerializer
+    TouristSpotUpvoteSerializer, TouristSpotCommentSerializer, FavoriteTouristSpotSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -62,3 +63,11 @@ class TouristSpotCommentsViewSet(viewsets.ModelViewSet):
     """
     queryset = TouristSpotComments.objects.all()
     serializer_class = TouristSpotCommentSerializer
+
+
+class FavoriteTouristSpotViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Favorite Tourist Spot Serializer to be viewed and edited
+    """
+    queryset = FavoriteTouristSpot.objects.all()
+    serializer_class = FavoriteTouristSpotSerializer
