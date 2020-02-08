@@ -8,8 +8,9 @@ from touristspots import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'touristspots', views.TouristSpotViewSet)
-router.register(r'category', views.CategoryViewSet)
+router.register(r'categories', views.CategoryViewSet)
 router.register(r'comments', views.TouristSpotCommentsViewSet)
+router.register(r'favorites', views.FavoriteTouristSpotViewSet)
 
 urlpatterns = [
     path('openapi/', get_schema_view(
