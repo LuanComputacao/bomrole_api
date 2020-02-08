@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from touristspots.models import Category, TouristSpot, TouristSpotUpvote
+from touristspots.models import TouristSpotCategory, TouristSpot, TouristSpotUpvote
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -22,6 +22,6 @@ class TouristSpotUpvoteAdmin(admin.ModelAdmin):
     list_display = ('user', 'tourist_spot')
 
 
-admin.site.register(Category, CategoryAdmin)
+admin.site.register(TouristSpotCategory, CategoryAdmin)
 admin.site.register(TouristSpot, TouristSpotAdmin)
 admin.site.register(TouristSpotUpvote, TouristSpotUpvoteAdmin)
