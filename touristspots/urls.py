@@ -9,6 +9,7 @@ router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'touristspots', views.TouristSpotViewSet)
 router.register(r'category', views.CategoryViewSet)
+router.register(r'comments', views.TouristSpotCommentsViewSet)
 
 urlpatterns = [
     path('openapi/', get_schema_view(
