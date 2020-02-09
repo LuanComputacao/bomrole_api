@@ -11,6 +11,7 @@ router.register(r'touristspots', views.TouristSpotViewSet)
 router.register(r'categories', views.CategoryViewSet)
 router.register(r'comments', views.TouristSpotCommentsViewSet)
 router.register(r'favorites', views.FavoriteTouristSpotViewSet)
+router.register(r'pictures', views.TouristSpotsPicturesViewSet)
 
 urlpatterns = [
     path('openapi/', get_schema_view(
