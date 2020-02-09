@@ -4,9 +4,10 @@ from rest_framework import viewsets
 from rest_framework.generics import ListAPIView
 
 from touristspots.models import TouristSpot, TouristSpotCategory, TouristSpotUpvote, TouristSpotComments, \
-    FavoriteTouristSpot
+    FavoriteTouristSpot, TouristSpotsPictures
 from touristspots.serializers import UserSerializer, GroupSerializer, TouristSpotSerializer, CategorySerializer, \
-    TouristSpotUpvoteSerializer, TouristSpotCommentSerializer, FavoriteTouristSpotSerializer
+    TouristSpotUpvoteSerializer, TouristSpotCommentSerializer, FavoriteTouristSpotSerializer, \
+    TouristSpotsPicturesSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -71,3 +72,11 @@ class FavoriteTouristSpotViewSet(viewsets.ModelViewSet):
     """
     queryset = FavoriteTouristSpot.objects.all()
     serializer_class = FavoriteTouristSpotSerializer
+
+
+class TouristSpotsPicturesViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Tourist Spot Pictures to be viewed and edited
+    """
+    queryset = TouristSpotsPictures.objects.all()
+    serializer_class = TouristSpotsPicturesSerializer
