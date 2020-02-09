@@ -31,3 +31,8 @@ API para guardar os melhores lugares para fazer aquele role com a turma
 * Instructions how to run the development environment.
 * Instructions how to deploy.
 * A Postman collection.
+
+
+## References
+
+* Social login [Simple Facebook social Login using Django Rest Framework.](https://medium.com/@katherinekimetto/simple-facebook-social-login-using-django-rest-framework-e2ac10266be1)
