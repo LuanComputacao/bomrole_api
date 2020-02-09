@@ -1,6 +1,12 @@
 from django.contrib.auth.models import User, AbstractUser, PermissionsMixin
 from django.db import models
+from django.utils.datetime_safe import datetime
 from django.utils.translation import gettext_lazy as _
+
+
+def user_directory_path(instance, filename):
+    now = datetime.today()
+    return 'user_{0}/{1}/{2}/{3}/{4}'.format(instance.user.id, now.year, now.month, now.day, filename)
 
 
 # Create your models here.
@@ -8,7 +14,7 @@ from django.utils.translation import gettext_lazy as _
 class TimeStamps(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    deleted_at = models.DateTimeField(null=True)
+    deleted_at = models.DateTimeField(null=True, blank=True)
 
     class Meta:
         abstract = True
@@ -70,3 +76,12 @@ class FavoriteTouristSpot(TimeStamps):
         verbose_name_plural = _('Favorite Tourist Spots')
 
 
+class TouristSpotsPictures(TimeStamps):
+    _directory = 'tourist_spot'
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='tourist_spots_pictures')
+    tourist_spot = models.ForeignKey(TouristSpot, on_delete=models.CASCADE, null=False, related_name='pictures')
+    picture = models.ImageField(upload_to=user_directory_path, null=False, blank=False)
+
+    class Meta:
+        verbose_name = _('Tourist Spot Image')
+        verbose_name_plural = _('Tourist Spot Images')
