@@ -35,6 +35,7 @@ class TouristSpotSerializer(serializers.HyperlinkedModelSerializer):
             'url'
         ]
 
+    
     upvotes_count = serializers.SerializerMethodField()
 
     def get_upvotes_count(self, obj):
