@@ -2,6 +2,16 @@
 
 API para guardar os melhores lugares para fazer aquele role com a turma
 
+## Non-functional specs
+* You may choose your favorite language.
+* You may choose your favorite database.
+* You may choose to use a framework or not.
+* You may use any piece of technology you think is necessary or cool.
+* It must be __LGPD__ compliant.
+* It must be easy to setup and deploy.
+* It must have __tests__.
+* Do your best.
+
 ## User Stories
 * As a anonymous user, I want to sign up using my Facebook account.
 * As a anonymous user, I want to sign in using my Facebook account.
