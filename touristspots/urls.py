@@ -3,15 +3,21 @@ from django.views.generic import TemplateView
 from rest_framework import routers
 from rest_framework.schemas import get_schema_view
 
-from touristspots import views
+from touristspots.views.category import CategoryViewSet
+from touristspots.views.comments import TouristSpotCommentsViewSet
+from touristspots.views.favorites import FavoriteTouristSpotViewSet
+from touristspots.views.home import Home, Login
+from touristspots.views.pictures import TouristSpotsPicturesViewSet
+from touristspots.views.tourist_spots import TouristSpotViewSet
+from touristspots.views.users import UserViewSet
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'touristspots', views.TouristSpotViewSet)
-router.register(r'categories', views.CategoryViewSet)
-router.register(r'comments', views.TouristSpotCommentsViewSet)
-router.register(r'favorites', views.FavoriteTouristSpotViewSet)
-router.register(r'pictures', views.TouristSpotsPicturesViewSet)
+router.register(r'users', UserViewSet)
+router.register(r'touristspots', TouristSpotViewSet)
+router.register(r'categories', CategoryViewSet)
+router.register(r'comments', TouristSpotCommentsViewSet)
+router.register(r'favorites', FavoriteTouristSpotViewSet)
+router.register(r'pictures', TouristSpotsPicturesViewSet)
 
 urlpatterns = [
     path('openapi/', get_schema_view(
@@ -24,4 +30,6 @@ urlpatterns = [
         extra_context={'schema_url': 'openapi-schema'}
     ), name='swagger-ui'),
     path('api/', include(router.urls)),
+    path("", Home.as_view(), name="home"),
+    path("login/", Login.as_view(), name="login")
 ]
