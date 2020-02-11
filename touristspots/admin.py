@@ -9,7 +9,8 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class TouristSpotAdmin(admin.ModelAdmin):
-    list_display = ('name', 'category', 'upvotes_count', 'latitude', 'longitude', 'registered_by', 'created_at')
+    list_display = ('name', 'category', 'upvotes_count', 'point', 'registered_by', 'created_at')
+    default_zoom = -4
 
     def upvotes_count(self, obj):
         return obj.upvotes.count()
