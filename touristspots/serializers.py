@@ -29,8 +29,6 @@ class TouristSpotSerializer(serializers.HyperlinkedModelSerializer):
             'name',
             'category',
             'upvotes_count',
-            'latitude',
-            'longitude',
             'registered_by',
             'url'
         ]

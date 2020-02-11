@@ -46,3 +46,10 @@ API para guardar os melhores lugares para fazer aquele role com a turma
 ## References
 
 * Social login [Simple Facebook social Login using Django Rest Framework.](https://medium.com/@katherinekimetto/simple-facebook-social-login-using-django-rest-framework-e2ac10266be1)
+
+
+# Instalation
+
+```shell script
+sudo apt-get install binutils libproj-dev gdal-bin libsqlite3-mod-spatialite
+```

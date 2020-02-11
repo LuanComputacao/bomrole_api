@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User, AbstractUser, PermissionsMixin
+from django.contrib.gis.db.models import PolygonField, PointField
 from django.db import models
 from django.utils.datetime_safe import datetime
 from django.utils.translation import gettext_lazy as _
@@ -32,8 +33,7 @@ class TouristSpotCategory(TimeStamps):
 
 
 class TouristSpot(TimeStamps):
-    latitude = models.FloatField(blank=False, null=False)
-    longitude = models.FloatField(blank=False, null=False)
+    point = PointField(null=True, blank=True)
     name = models.CharField(max_length=255, unique=True, blank=False, null=False)
     registered_by = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True,
                                       related_name='tourist_spots')
@@ -45,7 +45,7 @@ class TouristSpot(TimeStamps):
         ordering = ['name']
 
     def __str__(self):
-        return "%s (%s) [%s,%s]" % (self.name, self.category, self.latitude, self.longitude)
+        return "%s (%s) [%s]" % (self.name, self.category, self.point)
 
 
 class TouristSpotUpvote(TimeStamps):
