@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User, Group
+from drf_extra_fields.geo_fields import PointField
 from rest_framework import serializers
 
 from touristspots.models import TouristSpot, TouristSpotCategory, TouristSpotUpvote, TouristSpotComments, \
@@ -28,12 +29,13 @@ class TouristSpotSerializer(serializers.HyperlinkedModelSerializer):
         fields = [
             'name',
             'category',
+            'point',
             'upvotes_count',
-            'registered_by',
             'url'
         ]
 
-    
+    point = PointField()
+
     upvotes_count = serializers.SerializerMethodField()
 
     def get_upvotes_count(self, obj):
