@@ -20,18 +20,21 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Group
-        fields = ['url', 'name']
+        fields = [
+            'url',
+            'name'
+        ]
 
 
 class TouristSpotSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = TouristSpot
         fields = [
+            'url',
             'name',
             'category',
             'point',
             'upvotes_count',
-            'url'
         ]
 
     point = PointField()
@@ -45,7 +48,10 @@ class TouristSpotSerializer(serializers.HyperlinkedModelSerializer):
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = TouristSpotCategory
-        fields = ['url', 'name']
+        fields = [
+            'url',
+            'name'
+        ]
 
 
 class TouristSpotUpvoteSerializer(serializers.HyperlinkedModelSerializer):
@@ -61,9 +67,9 @@ class TouristSpotCommentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = TouristSpotComments
         fields = [
+            'url',
             'user',
             'text',
-            'url'
         ]
 
 
@@ -71,9 +77,9 @@ class FavoriteTouristSpotSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = FavoriteTouristSpot
         fields = [
+            'url',
             'user',
             'tourist_spot',
-            'url'
         ]
 
 
@@ -81,6 +87,7 @@ class TouristSpotsPicturesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = TouristSpotsPictures
         fields = [
+            'url',
             'user',
             'tourist_spot',
             'picture'
