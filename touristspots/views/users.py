@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import viewsets, permissions
 from rest_framework.permissions import IsAuthenticated
 
-from touristspots.permissions import IsOwnerOrReadOnly
+from touristspots.permissions import IsOwnerOrReadOnly, IsMySelf
 from touristspots.serializers import UserSerializer
 
 
@@ -12,4 +12,8 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
+                          IsMySelf]
+
+    def get_queryset(self):
+        return User.objects.filter(username=self.request.user.username)
