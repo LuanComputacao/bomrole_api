@@ -29,3 +29,4 @@ class TouristSpotViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(registered_by=self.request.user)
+
