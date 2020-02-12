@@ -10,8 +10,6 @@ def user_directory_path(instance, filename):
     return 'user_{0}/{1}/{2}/{3}/{4}'.format(instance.user.id, now.year, now.month, now.day, filename)
 
 
-# Create your models here.
-
 class TimeStamps(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
