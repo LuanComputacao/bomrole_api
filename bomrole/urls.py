@@ -24,5 +24,6 @@ urlpatterns = [
                   path('', include('touristspots.urls')),
                   path('api-auth/', include('rest_framework.urls')),
                   path("logout/", auth_views.LogoutView.as_view(), name="logout"),
-                  path('social-auth/', include('social_django.urls', namespace="social")),
+                  path('social-auth/', include('social_django.urls', namespace="social-login")),
+                  path('api/auth/', include('rest_framework_social_oauth2.urls')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
