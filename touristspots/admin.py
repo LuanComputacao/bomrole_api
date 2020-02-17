@@ -1,7 +1,10 @@
 from django.contrib import admin
 
 # Register your models here.
-from touristspots.models import TouristSpotCategory, TouristSpot, TouristSpotUpvote, TouristSpotsPictures
+from django.forms import BaseInlineFormSet
+
+from touristspots.models import TouristSpotCategory, TouristSpot, TouristSpotUpvote, TouristSpotsPictures, \
+    TouristSpotComments
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -10,6 +13,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class TouristSpotAdmin(admin.ModelAdmin):
     list_display = ('name', 'category', 'upvotes_count', 'point', 'registered_by', 'created_at')
+    fields = ('name', 'registered_by', 'category', 'point', 'deleted_at')
     default_zoom = -4
 
     def upvotes_count(self, obj):
@@ -26,7 +30,12 @@ class TouristSpotsPicturesAdmin(admin.ModelAdmin):
     list_display = ('user', 'tourist_spot')
 
 
+class TouristSpotCommentsAdmin(admin.ModelAdmin):
+    list_display = ('user', 'text')
+
+
 admin.site.register(TouristSpotCategory, CategoryAdmin)
 admin.site.register(TouristSpot, TouristSpotAdmin)
 admin.site.register(TouristSpotUpvote, TouristSpotUpvoteAdmin)
 admin.site.register(TouristSpotsPictures, TouristSpotsPicturesAdmin)
+admin.site.register(TouristSpotComments, TouristSpotCommentsAdmin)

@@ -45,8 +45,11 @@ API para guardar os melhores lugares para fazer aquele role com a turma
 
 ## References
 
-* Social login [Simple Facebook social Login using Django Rest Framework.](https://medium.com/@katherinekimetto/simple-facebook-social-login-using-django-rest-framework-e2ac10266be1)
-
+* [Simple Facebook social Login using Django Rest Framework.](https://medium.com/@katherinekimetto/simple-facebook-social-login-using-django-rest-framework-e2ac10266be1)
+* [DRFSAMV — Django Rest Framework + Social Auth + Mongo + VueJS](https://medium.com/@dobrotek6/drfsamv-django-rest-framework-social-auth-mongo-vuejs-part-1-c5c907dd7b69)
+* [How to Integrate OAuth 2 Into Your Django/DRF Back-end Without Going Insane](https://www.toptal.com/django/integrate-oauth-2-into-django-drf-back-end) 
+* [DRF SA docs](https://pypi.org/project/django-rest-framework-social-oauth2/)
+* [PSA configuration](https://python-social-auth.readthedocs.io/en/latest/configuration/django.html)
 
 # Instalation
 
