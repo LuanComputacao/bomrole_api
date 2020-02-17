@@ -58,7 +58,8 @@ class TouristSpotUpvote(TimeStamps):
 
 class TouristSpotComments(TimeStamps):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    text = models.CharField(max_length=255, null=False, blank=False, default='')
+    text = models.TextField(max_length=255, null=False, blank=False, default='')
+    tourist_spot = models.ForeignKey(TouristSpot, on_delete=models.CASCADE, blank=False, related_name='comments')
 
     class Meta:
         verbose_name = _('Tourist Spot Comment')
