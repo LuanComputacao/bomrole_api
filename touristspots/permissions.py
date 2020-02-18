@@ -11,7 +11,6 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
             return True
         return obj.registered_by == request.user
 
-
 class IsMySelf(permissions.BasePermission):
     """
     Custom permission to only allow User to edit himself
