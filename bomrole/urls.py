@@ -22,10 +22,9 @@ from django.urls import path, include
 urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('', include('touristspots.urls')),
-                  path('api/auth/', include('rest_framework_social_oauth2.urls')),
+                  path('auth/', include('rest_framework_social_oauth2.urls')),
                   path("logout/", auth_views.LogoutView.as_view(), name="logout"),
-                  path(r'^api/login/', include('rest_social_auth.urls_jwt')),
-                  path(r'^api/login/', include('rest_social_auth.urls_token')),
-                  path(r'^api/login/', include('rest_social_auth.urls_session')),
-
+                  # path(r'api/login/', include('rest_social_auth.urls_jwt')),
+                  # path(r'api/login/', include('rest_social_auth.urls_token')),
+                  # path(r'api/login/', include('rest_social_auth.urls_session')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

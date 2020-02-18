@@ -47,8 +47,8 @@ INSTALLED_APPS = [
     'social_django',
     'rest_framework_social_oauth2',
     'rest_framework',
-    'rest_framework.authtoken',
-    'rest_social_auth',
+    # 'rest_framework.authtoken',
+    # 'rest_social_auth',
     'django_filters',
     'touristspots',
 ]
@@ -71,7 +71,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'social_django.middleware.SocialAuthExceptionMiddleware',
+    # 'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'bomrole.urls'
@@ -159,11 +159,12 @@ MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_URL = 'logout'
-LOGOUT_REDIRECT_URL = 'login'
+# LOGIN_URL = 'login'
+# LOGIN_REDIRECT_URL = 'home'
+# LOGOUT_URL = 'logout'
+# LOGOUT_REDIRECT_URL = 'login'
 
+SOCIAL_AUTH_FACEBOOK_API_VERSION = '2.10'
 SOCIAL_AUTH_FACEBOOK_KEY = os.getenv("SOCIAL_AUTH_FACEBOOK_KEY")  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv("SOCIAL_AUTH_FACEBOOK_SECRET")  # App Secret
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']

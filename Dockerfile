@@ -1,7 +1,20 @@
-FROM python:3
-ENV PYTHONUNBUFFERED 1
-RUN mkdir /code
+FROM python:3.7
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        postgresql-client \
+    && apt-get install -y \
+        gdal-bin \
+        vim \
+        binutils \
+        libpq-dev \
+        libsqlite3-mod-spatialite
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /code
-COPY requirements.txt /code/
+COPY requirements.txt ./
 RUN pip install -r requirements.txt
-COPY . /code/
+COPY . .
+
+EXPOSE 8000
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
