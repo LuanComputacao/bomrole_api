@@ -1,12 +1,6 @@
 version: '3.7'
 
 services:
-  db:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: secret
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
@@ -16,3 +10,15 @@ services:
       - "8000:8000"
     depends_on:
       - db
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_USER: root
+      POSTGRES_DB: bomrole
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

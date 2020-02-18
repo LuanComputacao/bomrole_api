@@ -8,7 +8,7 @@ RUN apt-get update \
         vim \
         binutils \
         libpq-dev \
-        libsqlite3-mod-spatialite
+        libsqlite3-mod-spatialite \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /code
