@@ -7,7 +7,7 @@
 ## Serving the application
 
 ### Python Virtual Environment
-* Check the requirements
+* Check the __requirements__
   * Python __3.7__
   * Python `pip`
   * Python `virtualenv` 
@@ -32,7 +32,7 @@
     $ ./manage.py runserver 0.0.0.0:8000
     ```
 ### Using docker
-* Check the requirements
+* Check the __requirements__
   * Docker
   * Docker Compose
 * Run the dev environment
