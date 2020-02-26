@@ -1,7 +1,7 @@
 FROM python:3.7
 
 RUN apt-get update \
-    && apt-get install apt-utils \
+    && apt-get install -y apt-utils \
     && apt-get install -y --no-install-recommends \
         postgresql-client \
     && apt-get install -y \
@@ -20,4 +20,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 EXPOSE 8000
-ENTRYPOINT ["python", "manage.py", "runserver", "0.0.0.0:$PORT"]
+CMD python manage.py runserver 0.0.0.0:$PORT
