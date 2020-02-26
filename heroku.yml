@@ -1,0 +1,6 @@
+setup:
+  config:
+    DEBUG: 0
+build:
+  docker:
+    web: .docker/ubuntu.Dockerfile
