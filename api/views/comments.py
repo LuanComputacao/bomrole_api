@@ -11,3 +11,6 @@ class TouristSpotCommentsViewSet(viewsets.ModelViewSet):
     queryset = TouristSpotComments.objects.all()
     serializer_class = TouristSpotCommentSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)

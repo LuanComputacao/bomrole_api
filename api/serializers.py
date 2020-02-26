@@ -13,7 +13,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             'url',
             'username',
             'email',
-            'tourist_spots'
+            'password'
         ]
 
 
@@ -69,6 +69,7 @@ class TouristSpotCommentSerializer(serializers.HyperlinkedModelSerializer):
             'url',
             'user',
             'text',
+            'tourist_spot'
         ]
 
 
