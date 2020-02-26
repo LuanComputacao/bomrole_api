@@ -1,6 +1,7 @@
 setup:
   config:
     DEBUG: 0
+    SECRET_KEY: 'change-me-insecure-django-secret-key'
 build:
   docker:
     web: .docker/ubuntu.Dockerfile
