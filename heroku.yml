@@ -4,6 +4,6 @@ setup:
     SECRET_KEY: 'change-me-insecure-django-secret-key'
 build:
   docker:
-    web: .docker/ubuntu.Dockerfile
+    web: Dockerfile
 run:
   web: ./manage.py runserver 0.0.0.0:8000
