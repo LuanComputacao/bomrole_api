@@ -1,7 +1,6 @@
-setup:
-  config:
-    DEBUG: 0
-    SECRET_KEY: 'gzoc2#em)dz@)&p4oqo$f8586!f7t3r3s%9c86(cckqo7bfuf8'
 build:
   docker:
     web: Dockerfile
+  config:
+    DEBUG: 1
+    SECRET_KEY: 'gzoc2#em)dz@)&p4oqo$f8586!f7t3r3s%9c86(cckqo7bfuf8'
