@@ -1,7 +1,5 @@
 upstream app_server {
-        # server unix:/etc/systemd/system/gunicorn.socket fail_timeout=0;
         server web:8000;
-
 }
 
 server {
