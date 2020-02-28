@@ -33,7 +33,5 @@ EXPOSE $PORT
 EXPOSE 80
 EXPOSE 8000
 EXPOSE 443
-#RUN python manage.py runserver 0.0.0.0:$PORT
-#RUN /bin/bash -c "systemctl enable --now gunicorn.socket"
-CMD /bin/bash -c "service nginx start && gunicorn bomrole.wsgi:application"
+
 ENTRYPOINT .docker/entrypoint.sh
