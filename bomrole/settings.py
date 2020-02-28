@@ -75,6 +75,10 @@ CORS_ORIGIN_WHITELIST = [
     "http://127.0.0.1:9000"
 ]
 
+CSRF_COOKIE_SECURE = True
+SECURE_REFERRER_POLICY = [
+    'origin',
+]
 REST_FRAMEWORK = {
     # 'DEFAULT_RENDERER_CLASSES': [
     #     'rest_framework.renderers.JSONRenderer',
