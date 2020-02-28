@@ -34,4 +34,4 @@ EXPOSE 80
 EXPOSE 8000
 EXPOSE 443
 
-ENTRYPOINT .docker/entrypoint.sh
+CMD ./.docker/entrypoint.sh
