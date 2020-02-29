@@ -24,7 +24,7 @@ RUN pip install wheel
 COPY ./requirements.txt ./
 RUN pip install -r requirements.txt
 COPY . .
-RUN ./manage.py collectstatic --noinput
+RUN python manage.py collectstatic --noinput
 COPY .docker/gunicorn.service /etc/systemd/system/gunicorn.service
 COPY .docker/gunicorn.socket /etc/systemd/system/gunicorn.socket
 EXPOSE $PORT
