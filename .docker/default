@@ -1,5 +1,6 @@
 upstream app_server {
-        server web:8000;
+        # server unix:/etc/systemd/system/gunicorn.socket fail_timeout=3s;
+        server 0.0.0.0:8000;
 }
 
 server {
@@ -39,6 +40,6 @@ server {
 
         error_page 500 502 503 504 /500.html;
         location = /500.html {
-                root /path/to/app/current/public;
+                root /code/api/templates/error_pages/;
         }
 }

@@ -1,4 +1,4 @@
-FROM python:3.7 as djangonex
+FROM python:3.7 as base
 ENTRYPOINT /bin/bash
 RUN apt-get update \
     && apt-get install -y apt-utils \
@@ -15,18 +15,18 @@ RUN apt-get update \
         nginx \
         systemd \
     && rm -rf /var/lib/apt/lists/*
-COPY .docker/default /etc/nginx/sites-available/default
 
 
-FROM djangonex
+FROM base
 
 WORKDIR /code
-RUN pip install wheel
 
+RUN pip install wheel
 COPY ./requirements.txt ./
 RUN pip install -r requirements.txt
 
 COPY . .
+
 COPY .docker/gunicorn.service /etc/systemd/system/gunicorn.service
 COPY .docker/gunicorn.socket /etc/systemd/system/gunicorn.socket
 EXPOSE $PORT
@@ -34,4 +34,6 @@ EXPOSE 80
 EXPOSE 8000
 EXPOSE 443
 
-CMD ./.docker/entrypoint.sh
+COPY .docker/entrypoint.sh /opt/entrypoint.sh
+RUN chmod +x /opt/entrypoint.sh
+ENTRYPOINT .docker/entrypoint.sh
