@@ -1,6 +1,6 @@
 #!/bin/bash
 
-touch /code/bomrole/.env
+echo '' > /code/bomrole/.env
 rm /etc/nginx/sites-available/default
 envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/sites-available/default
 # cp .docker/default /etc/nginx/sites-available/default
