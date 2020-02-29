@@ -23,7 +23,7 @@ router.register(r'pictures', TouristSpotsPicturesViewSet)
 router.register(r'upvotes', TouristSpotUpvotesViewSet)
 
 urlpatterns = [
-    url('/home/?$', Home.as_view(), name='home'),
+    path('', Home.as_view(), name='home'),
     url(r'api/touristspots/(?P<pk>[0-9]+)/near/(?P<meters>[0-9]+)/?$', TouristSpotsNear.as_view()),
     path('openapi/',
          get_schema_view(title="Tourist Spots", description="API for the project Tourist Spots", version="1.0.0"),
