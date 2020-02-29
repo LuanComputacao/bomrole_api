@@ -7,6 +7,7 @@ from rest_framework.schemas import get_schema_view
 from api.views.category import CategoryViewSet
 from api.views.comments import TouristSpotCommentsViewSet
 from api.views.favorites import FavoriteTouristSpotViewSet
+from api.views.home import Home
 from api.views.pictures import TouristSpotsPicturesViewSet
 from api.views.tourist_spots import TouristSpotViewSet, TouristSpotsNear
 from api.views.upvotes import TouristSpotUpvotesViewSet
@@ -22,6 +23,7 @@ router.register(r'pictures', TouristSpotsPicturesViewSet)
 router.register(r'upvotes', TouristSpotUpvotesViewSet)
 
 urlpatterns = [
+    url('/home/?$', Home.as_view(), name='home'),
     url(r'api/touristspots/(?P<pk>[0-9]+)/near/(?P<meters>[0-9]+)/?$', TouristSpotsNear.as_view()),
     path('openapi/',
          get_schema_view(title="Tourist Spots", description="API for the project Tourist Spots", version="1.0.0"),
