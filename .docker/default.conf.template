@@ -4,8 +4,8 @@ upstream app_server {
 }
 
 server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
+        listen ${PORT} default_server;
+        listen [::]:${PORT} default_server;
         server_tokens off;
 
         root /code;
