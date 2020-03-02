@@ -11,6 +11,7 @@ RUN apt-get update \
         vim \
         binutils \
         libpq-dev \
+        postgresql postgresql-contrib \
         libsqlite3-mod-spatialite \
         nginx \
         systemd \
