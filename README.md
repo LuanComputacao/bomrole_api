@@ -1,6 +1,13 @@
 # Bom Rolê
 
-# Descrição
+Wow! That was a awesome challenge. I used a lot of time searching technologies to solve the stories and have the best
+fit between the framework and the plugins used here.
+
+## List of new knowleges
+
+*  
+
+# Description
 
 # How to run in development
 
