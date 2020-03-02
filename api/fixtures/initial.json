@@ -41,19 +41,6 @@
   },
   {
     "model": "api.touristspot",
-    "pk": 1,
-    "fields": {
-      "created_at": "2020-02-10T23:06:27.698Z",
-      "updated_at": "2020-02-10T23:06:27.698Z",
-      "deleted_at": null,
-      "point": null,
-      "name": "Parque Verde",
-      "registered_by": 1,
-      "category": 1
-    }
-  },
-  {
-    "model": "api.touristspot",
     "pk": 2,
     "fields": {
       "created_at": "2020-02-11T02:48:53.126Z",
