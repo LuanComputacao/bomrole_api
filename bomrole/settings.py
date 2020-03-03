@@ -16,6 +16,8 @@ import dj_database_url
 import environ
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from bomrole.utils.gdal import change_db_engine_to_gdal
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Django-environ
@@ -121,8 +123,7 @@ WSGI_APPLICATION = 'bomrole.wsgi.application'
 
 DATABASES = {
     'default': {
-        #         # 'ENGINE': 'django.db.backends.sqlite3',
-        'ENGINE': 'django.contrib.gis.db.backends.spatialite',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
@@ -133,6 +134,8 @@ db_config = dj_database_url.config(
 )
 
 DATABASES['default'].update(db_config)
+
+DATABASES['default']['ENGINE'] = change_db_engine_to_gdal(DATABASES['default']['ENGINE'])
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
