@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo '' >> /code/bomrole/.env
+echo '' >> /app/bomrole/.env
 python manage.py migrate
 python manage.py collectstatic --noinput
 rm /etc/nginx/sites-available/default
