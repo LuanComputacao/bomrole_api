@@ -67,12 +67,15 @@ ROOT_URLCONF = 'bomrole.urls'
 
 ALLOWED_HOSTS = [
     '*',
+    'http://bomrole.herokuapp.com',
     'localhost',
     '127.0.0.1',
     '[::1]'
 ]
 
 CORS_ORIGIN_WHITELIST = [
+    "http://bomrole.herokuapp.com",
+    "https://bomrole.herokuapp.com",
     "http://localhost:3000",
     "http://localhost:8000",
     "http://127.0.0.1:9000"
