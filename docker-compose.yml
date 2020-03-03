@@ -7,7 +7,7 @@ services:
       context: .
     entrypoint: .docker/entrypoint.sh
     volumes:
-    - .:/code
+    - .:/app
     ports:
     - 80:80
     env_file:

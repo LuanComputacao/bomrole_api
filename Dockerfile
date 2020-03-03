@@ -20,7 +20,7 @@ RUN apt-get update \
 
 
 FROM base
-WORKDIR /code
+WORKDIR /app
 RUN pip install wheel
 COPY ./requirements.txt ./
 RUN pip install -r requirements.txt
@@ -33,5 +33,6 @@ EXPOSE 8000
 EXPOSE 443
 COPY .docker/default.conf.template /etc/nginx/conf.d/default.conf.template
 COPY .docker/entrypoint.sh /opt/entrypoint.sh
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN chmod +x /opt/entrypoint.sh
 ENTRYPOINT .docker/entrypoint.sh

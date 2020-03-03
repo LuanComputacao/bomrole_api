@@ -8,16 +8,16 @@ server {
         listen [::]:${PORT} default_server;
         server_tokens off;
 
-        root /code;
+        root /app;
 
         location /static/ {
                 autoindex on;
-                alias   /code/store/static/;
+                alias   /app/store/static/;
         }
 
         location /media/ {
                 autoindex on;
-                alias   /code/store/media/;
+                alias   /app/store/media/;
         }
 
         location / {
@@ -41,6 +41,6 @@ server {
 
         error_page 500 502 503 504 /500.html;
         location = /500.html {
-                root /code/api/templates/error_pages/;
+                root /app/api/templates/error_pages/;
         }
 }
